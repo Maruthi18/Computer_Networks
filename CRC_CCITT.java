@@ -78,16 +78,18 @@ public class CRC_CCITT {
         // --------- DISPLAY VALIDITY OF DATA -------------
 
         boolean valid = true;
-        for (int i=0; i<data.length; i++){
-            if ( data[i] == 1){
+        for (int i = 0; i < data.length; i++) {
+            if ( data[i] == 1 ) {
                 valid = false;
                 break;
             }
         }
 
-        if (valid == true)
+        if ( valid == true ) {
             System.out.println(" VALID ");
-        else
+        }
+        else {
             System.out.println(" CRC ERROR OCCURS ");
+        }
     }
 }

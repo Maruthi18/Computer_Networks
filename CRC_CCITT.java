@@ -75,7 +75,7 @@ public class CRC_CCITT {
             }
         }
 
-        // --------- DISPLAY VALDITY OF DATA -------------
+        // --------- DISPLAY VALIDITY OF DATA -------------
 
         boolean valid = true;
         for (int i=0; i<data.length; i++){

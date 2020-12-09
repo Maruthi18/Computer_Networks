@@ -86,8 +86,8 @@ public class CRC_CCITT {
         }
 
         if (valid == true)
-            System.out.println(" Valid ");
+            System.out.println(" VALID ");
         else
-            System.out.println(" CRC ERROR Occured ");
+            System.out.println(" CRC ERROR OCCURS ");
     }
 }

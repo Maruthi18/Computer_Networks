@@ -39,7 +39,7 @@ public class CRC_CCITT {
 
         System.out.print(" The Checksum Code : ");
         for (int i=0; i<message.length(); i++) {
-            data[i] = Integer.parseInt(message.charAt(i) + "");   // This is Remainder 
+            data[i] = Integer.parseInt(message.charAt(i) + "");   // This is Remainder of the Sender Side
         }
         for (int i=0; i< data.length; i++){
             System.out.print( data[i] );

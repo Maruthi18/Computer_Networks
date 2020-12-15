@@ -1,3 +1,3 @@
 # Computer_Networks
 Computer Network Programs
-# This Program are design to perform in a lab
+# These Programs are design to perform in a lab

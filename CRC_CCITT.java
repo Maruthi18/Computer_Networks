@@ -1,6 +1,11 @@
 import java.util.Scanner;
 import java.util.*;
 
+
+
+// length = Size of an array
+// length = Number of character in a string
+
 public class CRC_CCITT {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);

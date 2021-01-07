@@ -4,7 +4,7 @@ import java.util.*;
 
 
 // length = Size of an array
-// length = Number of character in a string
+// length() = Number of character in a string
 
 public class CRC_CCITT {
     public static void main(String[] args) {

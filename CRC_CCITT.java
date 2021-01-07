@@ -29,7 +29,7 @@ public class CRC_CCITT {
         for (int i=0; i<message.length();i++) {
             if(data[i] == 1){
                 for (int j=0; j<divisor.length; j++) {
-                    data[ i+j ] ^= divisor[ j ];
+                    data[ i+j ] ^= divisor[ j ];             // here the result stored back to data only ...
 
                 }
             }

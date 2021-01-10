@@ -1,6 +1,7 @@
 import java.net.*;
 import java.io.*;
 
+@SuppressWarnings("ALL")
 public class TCPC {
     public static void main (String[] args) throws Exception {
         Socket sock = new Socket("127.0.01", 4000);

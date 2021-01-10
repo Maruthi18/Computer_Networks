@@ -3,6 +3,8 @@
 import java.util.Scanner;
 import java.util.*;
 
+
+@SuppressWarnings("WrongPackageStatement")
 public class ford {
 
     private int D[];

@@ -24,7 +24,7 @@ public class ford {
 
     public void BellmanFordEvaluation (int source, int A[][]) {
 
-        for (int node = 1; node <= number_of_Vertices; node++) {
+        for ( int node = 1; node <= number_of_Vertices; node++ ) {
 
             D[ node ] = MAX_VALUE;
 
@@ -34,11 +34,11 @@ public class ford {
         D[ source ] = 0;
 
 
-        for (int node = 1; node <= number_of_Vertices - 1; node++) {
+        for ( int node = 1; node <= number_of_Vertices - 1; node++ ) {
 
-            for (int source_node = 1; source_node <= number_of_Vertices; source_node++) {
+            for ( int source_node = 1; source_node <= number_of_Vertices; source_node++ ) {
 
-                for (int destination_node = 1; destination_node <= number_of_Vertices; destination_node++) {
+                for ( int destination_node = 1; destination_node <= number_of_Vertices; destination_node++ ) {
 
                     if ( A[ source_node ][ destination_node ] != MAX_VALUE ) {
 
@@ -55,14 +55,14 @@ public class ford {
         }
 
 
-        for (int source_node = 1; source_node <= number_of_Vertices; source_node++) {
+        for ( int source_node = 1; source_node <= number_of_Vertices; source_node++ ) {
 
-            for (int destination_node = 1; destination_node <= number_of_Vertices; destination_node++) {
+            for ( int destination_node = 1; destination_node <= number_of_Vertices; destination_node++ ) {
 
                 if ( A[ source_node ][ destination_node ] != MAX_VALUE ) {
 
                     if ( D[ destination_node ] > D[ source_node ] + A[ source_node ][ destination_node ] ) {
-                        System.out.println("The Graph Contains Negative Edge Cycle");
+                        System.out.println ("The Graph Contains Negative Edge Cycle");
                     }
                 }
 
@@ -71,9 +71,9 @@ public class ford {
         }
 
 
-        for (int vertex = 1; vertex <= number_of_Vertices; vertex++) {
+        for ( int vertex = 1; vertex <= number_of_Vertices; vertex++ ) {
 
-            System.out.println("Distance Of Source " + source + " to " + vertex + " is " + D[ vertex ]);
+            System.out.println ("Distance Of Source " + source + " to " + vertex + " is " + D[ vertex ]);
 
         }
 
@@ -86,22 +86,22 @@ public class ford {
 
         int source;
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner (System.in);
 
-        System.out.println("Enter the number of vertices");
+        System.out.println ("Enter the number of vertices");
 
-        number_of_Vertices = scanner.nextInt();
+        number_of_Vertices = scanner.nextInt ();
 
 
         int A[][] = new int[ number_of_Vertices + 1 ][ number_of_Vertices + 1 ];
 
-        System.out.println("Enter The Adjacency Matrix");
+        System.out.println ("Enter The Adjacency Matrix");
 
-        for (int source_node = 1; source_node <= number_of_Vertices; source_node++) {
+        for ( int source_node = 1; source_node <= number_of_Vertices; source_node++ ) {
 
-            for (int destination_node = 1; destination_node <= number_of_Vertices; destination_node++) {
+            for ( int destination_node = 1; destination_node <= number_of_Vertices; destination_node++ ) {
 
-                A[ source_node ][ destination_node ] = scanner.nextInt();
+                A[ source_node ][ destination_node ] = scanner.nextInt ();
 
                 if ( source_node == destination_node ) {
 
@@ -120,18 +120,18 @@ public class ford {
             }
 
         }
-        System.out.println();
+        System.out.println ();
 
 
-        System.out.println("Enter The Source Vertex");
+        System.out.println ("Enter The Source Vertex");
 
-        source = scanner.nextInt();
+        source = scanner.nextInt ();
 
-        ford b = new ford(number_of_Vertices);
+        ford b = new ford (number_of_Vertices);
 
-        b.BellmanFordEvaluation(source, A);
+        b.BellmanFordEvaluation (source, A);
 
-        scanner.close();
+        scanner.close ();
 
     }
 

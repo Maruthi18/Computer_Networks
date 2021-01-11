@@ -3,35 +3,46 @@ package UDP_SOCKET;
 import java.net.*;
 import java.net.InetAddress;
 
+
+// Udp : No Connection b/w Client and server
+
 class UDPS {
-    public static void main (String args[]) throws Exception {
-        DatagramSocket serverSocket = new DatagramSocket (9876);
-        byte[] receiveData = new byte[ 1024 ];
-        byte[] sendData = new byte[ 1024 ];
-        while (true) {
-            System.out.println ("Server is Up");
+	public static void main (String args[]) throws Exception {
 
-            DatagramPacket receivePacket = new DatagramPacket (receiveData, receiveData.length);
+		// here we creating a socket for server side
+		DatagramSocket serverSocket = new DatagramSocket ( 9876 );
 
-            serverSocket.receive (receivePacket);
+		byte[] receiveData = new byte[ 1024 ];
+		byte[] sendData = new byte[ 1024 ];
 
-            String sentence = new String (receivePacket.getData ());
+		while (true) {
+			System.out.println ( "Server is Up" );
 
-            System.out.println ("RECEIVED:" + sentence);
+			DatagramPacket receivePacket = new DatagramPacket ( receiveData, receiveData.length );
 
-            InetAddress IPAddress = receivePacket.getAddress ();
+			serverSocket.receive ( receivePacket );
 
-            int port = receivePacket.getPort ();
+			// after receiving a packet stores in sentence Variable
+			String sentence = new String ( receivePacket.getData () );
 
-            String capitalizedSentence = sentence.toUpperCase ();
+			// we are printing what we got from the client side.
+			System.out.println ( "RECEIVED:" + sentence );
 
-            sendData = capitalizedSentence.getBytes ();
+			InetAddress IPAddress = receivePacket.getAddress ();
 
-            DatagramPacket sendPacket = new
-                    DatagramPacket (sendData, sendData.length, IPAddress, port);
+			int port = receivePacket.getPort ();
+
+			// here we are converting into upperCase..
+			String capitalizedSentence = sentence.toUpperCase ();
+
+			// we are storing in a byte array
+			sendData = capitalizedSentence.getBytes ();
+
+			DatagramPacket sendPacket = new
+					DatagramPacket ( sendData, sendData.length, IPAddress, port );
 
 
-            serverSocket.send (sendPacket);
-        }
-    }
+			serverSocket.send ( sendPacket );
+		}
+	}
 }

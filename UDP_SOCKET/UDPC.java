@@ -4,36 +4,55 @@ import java.io.*;
 import java.net.*;
 import java.net.InetAddress;
 
+
+// Socket Is just like a DOOR
+// Port is a Communication end point
+
+// Socket : program need to connect local or wan , it uses a component called SOCKET..
+// it allowing the data to be read and write over the network
+
+// Packet : if is fixedSize of Unit Data
+
 class UDPC {
-    public static void main (String[] args) throws Exception {
-        BufferedReader inFromUser = new BufferedReader (new InputStreamReader (System.in));
+	public static void main (String[] args) throws Exception {
 
-        DatagramSocket clientSocket = new DatagramSocket ();
+		// BufferReader : it reads text from input stream
+		BufferedReader inFromUser = new BufferedReader( new InputStreamReader( System.in ) );
 
-        InetAddress IPAddress = InetAddress.getByName ("localhost");
+		// This is udp programme so we are creating a datagram socket
+		DatagramSocket clientSocket = new DatagramSocket();
 
-        byte[] sendData = new byte[ 1024 ];
-        byte[] receiveData = new byte[ 1024 ];
+		// Here Our computer is managing both client and server , So our Computer ip Address stored in IPAddress Variable
+		InetAddress IPAddress = InetAddress.getByName( "localhost" );
 
-        System.out.println ("Enter the sting to be converted in to Upper case");
-        String sentence = inFromUser.readLine ();
+		byte[] sendData = new byte[ 1024 ];
+		byte[] receiveData = new byte[ 1024 ];
 
-        sendData = sentence.getBytes ();
+		System.out.println( "Enter the sting to be converted in to Upper case" );
 
-        DatagramPacket sendPacket = new
-                DatagramPacket (sendData, sendData.length, IPAddress, 9876);
+		// readLine() : Read a single line of text from the console
+		String sentence = inFromUser.readLine();
 
+		sendData = sentence.getBytes();
 
-        clientSocket.send (sendPacket);
+		// here we create a packet
+		DatagramPacket sendPacket = new
+				DatagramPacket( sendData, sendData.length, IPAddress, 9876 );
 
-        DatagramPacket receivePacket = new DatagramPacket (receiveData, receiveData.length);
+		// here we sending a packet
+		clientSocket.send( sendPacket );
 
-        clientSocket.receive (receivePacket);
+		// after server will convert and send it back to me , we need one more packet to receive , we created a receive packet
+		DatagramPacket receivePacket = new DatagramPacket( receiveData, receiveData.length );
 
-        String modifiedSentence = new String (receivePacket.getData ());
+		// here we receiving the data from the server
+		clientSocket.receive( receivePacket );
 
-        System.out.println ("FROM SERVER:" + modifiedSentence);
+		// Here we extracted the data from the packet and storing in modifiedSentence
+		String modifiedSentence = new String( receivePacket.getData() );
 
-        clientSocket.close ();
-    }
+		System.out.println( "FROM SERVER:" + modifiedSentence );
+
+		clientSocket.close();
+	}
 }

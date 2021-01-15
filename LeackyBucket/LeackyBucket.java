@@ -9,16 +9,16 @@ public class LeackyBucket {
 		int i;
 		int a[] = new int[ 20 ];
 		int bucket_remaining = 0, bucket_capacity = 4, rate = 3, sent, received;
-		Scanner in = new Scanner( System.in );
+		Scanner s = new Scanner( System.in );
 		System.out.println( "Enter the number of packets" );
 
 		// n = number of packets
-		int n = in.nextInt();
+		int n =s.nextInt();
 		System.out.println( "Enter the Packets" );
 
 		// if i = 1 means we are storing a[i] value
 		for ( i = 1; i <= n; i++ )
-			a[ i ] = in.nextInt();
+			a[ i ] =s.nextInt();
 
 		System.out.println( "Clock \t Packet Size \t  Accept \t   Sent \t  Remaining" );
 		for ( i = 1; i <= n; i++ ) {

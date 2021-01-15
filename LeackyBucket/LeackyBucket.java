@@ -35,7 +35,7 @@ public class LeackyBucket {
 				received = 0;
 			}
 
-			// Iter1 if 5 < 3 no so br = br - rate [ 5 = 5 - 3 ] = 2 br = 2
+			// Iter1 if 5 < 3 no so br = br - rate [ 5 = 5 - 3 ] = 2 br = 2.
 			// Iter2 br = 2 br send to sent and br set to ZERO
 			if ( bucket_remaining != 0 ) {
 				if ( bucket_remaining < rate ) {
